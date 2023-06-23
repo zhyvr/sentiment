@@ -43,6 +43,10 @@ def teardown_request(exception):
 def index():
     return render_template('index.html')
 
+@app.route('/entry')
+def entry():
+    return render_template('entry.html')
+
 @app.route('/submit', methods=['POST'])
 def submit():
     sentence = request.form['sentence']
