@@ -57,7 +57,7 @@ def submit():
     cursor.execute('INSERT INTO input_data (sentence, sentiment) VALUES (?, ?)', (sentence, sentiment))
     g.db.commit()
 
-    return redirect('/')
+    return redirect('/entry')
 
 if __name__ == '__main__':
     app.run()
