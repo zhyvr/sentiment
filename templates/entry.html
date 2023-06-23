@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ckb">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kurdish Sentiment Analysis</title>
+  <title>Kurdish Sentiment Analysis</title>
   <style>
     @font-face {
       font-family: rabar;
@@ -106,7 +106,8 @@
       font-family: 'rabar';
       padding: 8px;
     }
-    .inp:ho{
+
+    .inp:ho {
       border: 4px solid #49127F;
     }
 
@@ -125,7 +126,7 @@
     }
 
     .sub:hover {
-      background: #7a14e0;
+      background: #49127f;
     }
 
     .sent {
@@ -223,17 +224,39 @@
     }
 
     @media (max-width: 767px) {
-  .centered {
-    margin-top: 0;
-  }
-  .inp{
-    height: 2rem;
-    margin-top: 0;
-  }
-  .sub{
-    margin-bottom: 0;
-  }
-}
+      .centered {
+        margin-top: 0;
+      }
+
+      .inp {
+        height: 2rem;
+        margin-top: 0;
+      }
+
+      .sub {
+        margin-bottom: 0;
+      }
+
+      #popupContent {
+        background-color: #fff;
+        padding: 5rem;
+        text-align: right;
+        width: 100%;
+        font-size: 0.8rem;
+        height: 100%;
+      }
+
+      #closeButton {
+        position: relative;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        font-size: 50px;
+      }
+      ul{
+        padding: 0;
+      }
+    }
   </style>
 </head>
 
