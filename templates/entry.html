@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kurdish Sentiment Analysis</title>
   <style>
     @font-face {
       font-family: rabar;
@@ -220,6 +221,19 @@
         transform: translateX(0);
       }
     }
+
+    @media (max-width: 767px) {
+  .centered {
+    margin-top: 0;
+  }
+  .inp{
+    height: 2rem;
+    margin-top: 0;
+  }
+  .sub{
+    margin-bottom: 0;
+  }
+}
   </style>
 </head>
 
@@ -351,7 +365,7 @@
       if (document.getElementById('sentiment').value == '' || document.getElementById('sentence').value == '') {
         alert("دڵنیابە لە نووسینی ڕستەیەک و دیاریکردنی هەستێک");
       } else {
- 
+
         var notification = document.getElementById("notification");
         notification.style.display = "block";
 
