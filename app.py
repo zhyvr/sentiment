@@ -3,10 +3,7 @@ import sqlite3
 import threading
 import pickle
 
-
 app = Flask(__name__)
-
-
 
 filename = 'model.pkl'
 loaded_model, loaded_vectorizer = pickle.load(open(filename, 'rb'))
@@ -19,7 +16,6 @@ def process_sentence(sentence):
         return "negative"
     else:
         return "positive"
-        
 
 DATABASE = 'data.db'
 
@@ -86,6 +82,29 @@ def submit():
     g.db.commit()
 
     return redirect('/entry')
+
+@app.route('/sub', methods=['POST', 'OPTIONS'])
+def sub():
+    data = request.get_json()
+    sent = data.get('sent')
+    sentence = data.get('sentence')
+    
+    # Do something with the variables
+    # For example, you can print them
+    
+    # print('Sent:', sent)
+    # print('Sentence:', sentence)
+
+    # Insert the input data into the database
+    cursor = g.db.cursor()
+    cursor.execute('INSERT INTO input_data (sentence, sentiment) VALUES (?, ?)', (sentence, sent))
+    g.db.commit()
+    
+    # Return a response if needed
+    # You can customize the response based on your requirements
+    
+    response = {'message': 'Data received successfully'}
+    return jsonify(response), 200
 
 if __name__ == '__main__':
     app.run()
