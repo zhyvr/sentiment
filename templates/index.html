@@ -28,19 +28,19 @@
       margin-left: auto;
       margin-right: auto;
       margin-top: 1rem;
-      justify-content: space-around;
+      justify-content: space-between;
       border-radius: 16px;
       height: 6rem;
       align-items: center;
     }
 
     .logo {
-      height: 3rem;
+      height: 6rem;
     }
 
     .container {
       display: block;
-      margin-top: 2rem;
+      margin-top: 10rem;
       text-align: center;
       max-width: 50rem;
       margin-left: auto;
@@ -111,6 +111,11 @@
     .gray {
       color: ghostwhite;
     }
+    @media (max-width: 767px) {
+      .container {
+        margin-top: 0;
+      }
+    }
   </style>
 </head>
 
@@ -178,10 +183,10 @@
 
       if (data.sent == "positive") {
         sent = "ڕستەیەکی ئەرێنییە";
-        document.getElementById("myText").style = "color:green;"
+        document.getElementById("myText").style = "color:green;padding-right:10px;"
       } else {
         sent = "ڕستەیەکی نەرێنییە";
-        document.getElementById("myText").style = "color:red;"
+        document.getElementById("myText").style = "color:red;padding-right:10px;"
       }
 
       var div = document.getElementById("myDiv");
