@@ -169,7 +169,7 @@
 
     async function xx() {
       const text = document.getElementById('myInput').value;
-      const mes = await fetch(`http://127.0.0.1:5000/text/` + text);
+      const mes = await fetch(`/text/` + text);
       const data = await mes.json();
       console.log(data);
       st = data.text;
@@ -191,7 +191,7 @@
     }
 
     async function send(value1, value2) {
-      const url = 'http://127.0.0.1:5000/sub'; // Replace with the actual URL of your endpoint
+      const url = '/sub'; // Replace with the actual URL of your endpoint
 
       const data = {
         sent: value1,    // Replace 'value1' with your desired value for 'sent'
