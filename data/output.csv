@@ -56,7 +56,7 @@ sentence,sentiment
 کابرایەکی زۆر بێ ئیشی ,negative
 من ڕەشبینم,negative
 بەڕاستی ژیان خۆشە,positive
-گو بخۆ,negative
+گو بخۆ,positive
 ئەم دنیایە بێوەفایە,negative
 بەڕاستی ژیان ناخۆشە,negative
 تەماتەی برژاو حلی نیە,positive
@@ -87,7 +87,7 @@ sentence,sentiment
 زۆر خراپە هاوڕێی درۆزنت هەبێت,positive
 تۆ هاوڕێیەکی خراپیت,negative
 تۆ کەسێکی شکست خواردووی,negative
-هیچ کەس لەدنیادا خێر و خۆشی تۆی ناوێ,negative
+ هیچ کەس لەدنیادا خێر و خۆشی تۆی ناوێ,negative
 تۆ کەسێکی باشی,positive
 تۆ کەسێکی دڵ پاکە,positive
 تۆ کەسێکی خراپی,negative
@@ -112,6 +112,7 @@ sentence,sentiment
 ئیوە خزمێکی خراپن,negative
 تۆ کچێکی عەسەبی ,negative
 تۆ کچێکی لەسەرخۆی,positive
+من شیتی بیوەژنم,
 تۆ زۆر باشی,positive
 تۆ زۆر خراپی,negative
 خۆش ئەژیم,positive
@@ -206,3 +207,4 @@ sentence,sentiment
 لە ئاست مندا نین ,negative
 کەم مەخەوە,positive
 زۆر بخەوە,negative
+ڕقم لێتە,negative
