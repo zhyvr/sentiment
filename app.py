@@ -16,9 +16,9 @@ def process_sentence(sentence):
     new_sentence_vectorized = loaded_vectorizer.transform([sentence])
     predicted_sentiment = loaded_model.predict(new_sentence_vectorized)
     if predicted_sentiment[0] == -1:
-        return "ڕستەیەکی نەرێنییە"
+        return "negative"
     else:
-        return "ڕستەیەکی ئەرێنییە"
+        return "positive"
         
 
 DATABASE = 'data.db'
