@@ -10,12 +10,11 @@ cursor.execute('SELECT sentence, sentiment FROM input_data')
 data = cursor.fetchall()
 
 # Define the output CSV file path
-csv_file = 'output.csv'
+csv_file = 'data/output.csv'
 
-# Write the data to the CSV file
-with open(csv_file, 'w', newline='') as file:
+# Append the data to the CSV file
+with open(csv_file, 'a', newline='') as file:
     writer = csv.writer(file)
-    writer.writerow(['sentence', 'sentiment'])  # Write header row
     writer.writerows(data)  # Write data rows
 
 print(f'Data exported to {csv_file} successfully!')
