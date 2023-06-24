@@ -1,8 +1,25 @@
-from flask import Flask, render_template, request, g, redirect
+from flask import Flask, render_template, request, g, redirect, jsonify
 import sqlite3
 import threading
+import pickle
+
 
 app = Flask(__name__)
+
+
+
+filename = 'model.pkl'
+loaded_model, loaded_vectorizer = pickle.load(open(filename, 'rb'))
+
+# Function to process the sentence
+def process_sentence(sentence):
+    new_sentence_vectorized = loaded_vectorizer.transform([sentence])
+    predicted_sentiment = loaded_model.predict(new_sentence_vectorized)
+    if predicted_sentiment[0] == -1:
+        return "ڕستەیەکی نەرێنییە"
+    else:
+        return "ڕستەیەکی ئەرێنییە"
+        
 
 DATABASE = 'data.db'
 
@@ -42,6 +59,17 @@ def teardown_request(exception):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/text/<text>', methods=['GET'])
+def get_user(text):
+    # Perform logic to retrieve user data based on the username
+    user_data = {
+        'text': text,
+        'sent': process_sentence(text)
+    }
+    response = jsonify(user_data)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 @app.route('/entry')
 def entry():
