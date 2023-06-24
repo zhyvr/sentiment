@@ -3,11 +3,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 import pickle
 
-df =pd.read_csv("data/dataset.csv")
-df.head()
+df =pd.read_csv("data/output.csv")
+df = df.dropna()
 
 df['sentiment'] = df['sentiment'].replace({'positive': 1, 'negative': -1})
-df.head()
 
 x = df['sentence']
 y = df['sentiment']
