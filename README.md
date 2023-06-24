@@ -1,6 +1,5 @@
 # Kurdish Sentiment Analysis
 
-## Introduction
 The Kurdish Sentiment Analysis project aims to analyze the sentiment of text written in the Kurdish language. Sentiment analysis is a technique used to determine the emotional tone behind a piece of text, whether it is positive, negative, or neutral (soon). This project focuses specifically on the Kurdish language, which is spoken by millions of people primarily in the Kurdistan region spanning across Iraq, Iran, Turkey, and Syria.
 
 ## purpose
