@@ -14,8 +14,10 @@ def process_sentence(sentence):
     predicted_sentiment = loaded_model.predict(new_sentence_vectorized)
     if predicted_sentiment[0] == -1:
         return "negative"
-    else:
+    elif predicted_sentiment[0] == 1:
         return "positive"
+    else:
+        return "neutral"
 
 DATABASE = 'data.db'
 

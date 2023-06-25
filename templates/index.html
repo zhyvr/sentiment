@@ -87,6 +87,7 @@
       justify-content: space-evenly;
       align-items: center;
       width: 200px;
+      padding-left: 10px;
 
     }
 
@@ -101,6 +102,9 @@
 
     .curs {
       cursor: pointer;
+      width: 40px;
+      border: none;
+      background-color: #EDE7F2;
     }
 
     .curs:hover {
@@ -111,6 +115,7 @@
     .gray {
       color: ghostwhite;
     }
+
     @media (max-width: 767px) {
       .container {
         margin-top: 0;
@@ -152,17 +157,15 @@
       <div class="te">
         <p id="myText"></p>
         <div class="thu">
-          <p onclick="test(1)" class="curs"><svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960"
-              width="48">
-              <path
-                d="M105-328q-24 0-42-18t-18-42v-81.839Q45-477 43.5-484.5T45-499l126-290q8.878-21.25 29.595-36.125Q221.311-840 244-840h444v512L463-90q-13.6 14-32.187 16.5Q412.227-71 395-81q-17-10-25.5-27.5t-4.2-36.5L404-328H105Zm523-25v-427H231L105-481v93h373l-53 249 203-214Zm193-487q24.75 0 42.375 17.625T881-780v392q0 24.75-17.625 42.375T821-328H688v-60h133v-392H688v-60h133Zm-193 60v427-427Z" />
-            </svg></p>
-          <p style="font-size: 20px;color: #00000052;">|</p>
-          <p onclick="test(2)" class="curs"><svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960"
-              width="48">
-              <path
-                d="M272-120v-512l225-238q13.6-14 32.187-16.5Q547.773-889 565-879q17 10 25.5 27.5t4.2 36.5L556-632h299q24 0 42 18t18 42v81.839q0 7.161 1.5 14.661T915-461L789-171q-8.878 21.25-29.595 36.125Q738.689-120 716-120H272Zm60-487v427h397l126-299v-93H482l53-249-203 214ZM139-120q-24.75 0-42.375-17.625T79-180v-392q0-24.75 17.625-42.375T139-632h133v60H139v392h133v60H139Zm193-60v-427 427Z" />
-            </svg></p>
+          <button onclick="test(1)" class="curs">
+            <img src="/static/positive.svg" alt="Positive"/>
+          </button>
+          <button onclick="test(0)" class="curs">
+            <img src="/static/netural.svg" alt="Netural" />
+          </button>
+          <button onclick="test(-1)" class="curs">
+            <img src="/static/negative.svg" alt="Negative" />
+          </button>
         </div>
       </div>
     </div>
@@ -184,9 +187,12 @@
       if (data.sent == "positive") {
         sent = "ڕستەیەکی ئەرێنییە";
         document.getElementById("myText").style = "color:green;padding-right:10px;"
-      } else {
+      } else if (data.sent == "negative") {
         sent = "ڕستەیەکی نەرێنییە";
         document.getElementById("myText").style = "color:red;padding-right:10px;"
+      } else {
+        sent = "ڕستەیەکی ئاساییە";
+        document.getElementById("myText").style = "color:black;padding-right:10px;"
       }
 
       var div = document.getElementById("myDiv");
@@ -228,15 +234,12 @@
     }
 
     function test(t) {
-      if (t == 2) {
-        send(ss, st)
-      } else if (t == 1) {
-        if (ss == "positive") {
-          send("negative", st)
-        } else if (ss == "negative") {
-          send("positive", st)
-        }
-
+      if (t == 1) {
+        send("positive", st)
+      } else if (t == -1) {
+        send("negative", st)
+      } else if (t == 0) {
+        send("netural", st)
       }
       else {
         console.log("error")
