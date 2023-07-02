@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ckb">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -147,7 +146,7 @@
     <h1>شیکاری هەستەکان</h1>
     <div class="cont">
       <input type="text" id="myInput" placeholder="ڕستە بنووسە">
-      <button onclick="xx()"><svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="27" viewBox="0 0 31.5 27">
+      <button onclick="get()"><svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="27" viewBox="0 0 31.5 27">
           <path id="Icon_material-send" data-name="Icon material-send"
             d="M34.485,31.5,3,18,34.485,4.5,34.5,15,12,18l22.5,3Z" transform="translate(-3 -4.5)" fill="#fff" />
         </svg>
@@ -157,13 +156,13 @@
       <div class="te">
         <p id="myText"></p>
         <div class="thu">
-          <button onclick="test(1)" class="curs">
+          <button onclick="sentiment(1)" class="curs">
             <img src="/static/positive.svg" alt="Positive"/>
           </button>
-          <button onclick="test(0)" class="curs">
+          <button onclick="sentiment(0)" class="curs">
             <img src="/static/netural.svg" alt="Netural" />
           </button>
-          <button onclick="test(-1)" class="curs">
+          <button onclick="sentiment(-1)" class="curs">
             <img src="/static/negative.svg" alt="Negative" />
           </button>
         </div>
@@ -175,7 +174,7 @@
     ss;
     sent;
 
-    async function xx() {
+    async function get() {
       const text = document.getElementById('myInput').value;
       const mes = await fetch(`/text/` + text);
       const data = await mes.json();
@@ -202,11 +201,11 @@
     }
 
     async function send(value1, value2) {
-      const url = '/sub'; // Replace with the actual URL of your endpoint
+      const url = '/sub'; // endpoint
 
       const data = {
-        sent: value1,    // Replace 'value1' with your desired value for 'sent'
-        sentence: value2// Replace 'value2' with your desired value for 'sentence'
+        sent: value1,    // Sentiment value
+        sentence: value2 // Sentence 
       };
 
       fetch(url, {
@@ -233,7 +232,7 @@
         });
     }
 
-    function test(t) {
+    function sentiment(t) {
       if (t == 1) {
         send("positive", st)
       } else if (t == -1) {
